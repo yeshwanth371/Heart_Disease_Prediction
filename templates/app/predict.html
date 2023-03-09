@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel = "stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style1.css' %}">
+    
+</head>
+<body id="bg" style="background-image: url('{% static 'image/img2.JPG'%}')";>
+    
+    <ul>
+        <li style="float: right;" ><a href="/signout">Signout</a></li>
+        <li style="float: left;" ><a href="/home">Home</a></li>
+    </ul>
+    <div class = "head1" style="font-family: 'Times New Roman', Times, serif; text-align: center; " >
+        <h1>Enter data to PREDICT</h1>
+    </div>
+    <div class="scroll">
+    <form action="/predict" method="post">
+        {% csrf_token %}
+        
+        <table class="center">
+            <tr><td>age</td><td><input type="text" id="age" name="age" required></td><td>(Age in Years)</td></tr>
+            <tr><td>sex</td><td><input type="text" id="sex" name="sex" required></td><td>(1 = male, 0 = female)</td></tr>
+            <tr><td>cp</td><td><input type="text" id="cp" name="cp" required></td><td>(Chest pain type)</td></tr>
+            <tr><td>trestbps</td><td><input type="text" id="trestbps" name="trestbps" required></td><td>(Resting Blood Pressure)</td></tr>
+            <tr><td>chol</td><td><input type="text" id="chol" name="chol" required></td><td>(Serum Cholestrol im mg/dl)</td></tr>
+            <tr><td>fbs</td><td><input type="text" id="fbs" name="fbs" required></td><td>(fasting blood sugar > 120 mg/dl; 1 = true ,0 = false)</td></tr>
+            <tr><td>restecg</td><td><input type="text" id="restecg" name="restecg"  required></td><td>(Resting electrocardiographic results)</td></tr>
+            <tr><td>thalach</td><td><input type="text" id="thalach" name="thalach" required><td>(Maximum Heart rate achieved)</td></td></tr>
+            <tr><td>exang</td><td><input type="text" id="exang" name="exang" required></td><td>(Exercise induced angina; 1 = yes, 0 = no)</td></tr>
+            <tr><td>oldpeak</td><td><input type="text" id="oldpeak" name="oldpeak" required></td><td>(ST depression induced by exercise relative to rest)</td></tr>
+            <tr><td>slope</td><td><input type="text" id="slope" name="slope" required></td><td>(Slope of the peak exercise ST segment)</td></tr>
+            <tr><td>ca</td><td><input type="text" id="ca" name="ca" required></td><td>(No.of major vessels(0-3) coloured by flourospy)</td></tr>
+            <tr><td>thal</td><td><input type="text" id="thal" name="thal" required></td><td>(3 = Normal, 6 = fixed defect, 7 = reversable defect)</td></tr>
+            <tr><td ></td><td><button type="submit">Predict</button></td></tr>
+        </table>
+        
+    </form>
+</div>
+</body>
+<style>
+    
+    
+    table{
+        
+        margin: auto;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 120%;
+        
+        background-color: transparent ;
+        width: 50%;
+    }
+    table.center{
+        margin-left: 30%;
+        margin-right: auto;
+    }
+    td{
+        padding: 4px;
+    }
+
+    
+    
+</style>
+</html>
